@@ -4,6 +4,16 @@
 {{else}}
 <button {{action "edit"}} class="btn btn-primary">Edit</button>
 {{/if}}
-<h2>{{name}} ({{year}})</h2>
-<div>{{description}}</div>
+
+{{#if isEditing}}
+  <div class="row">
+    <div class="col-md-1">Name:</div><div class="col-md-11">{{input value=name}}</div>
+    <div class="col-md-1">Year:</div><div class="col-md-11">{{input value=year}}</div>
+    <div class="col-md-1">Description:</div><div class="col-md-11">{{textarea value=description cols="120" rows="8"}}</div>
+  </div>
+{{else}}
+  <h2>{{name}} ({{year}})</h2>
+  <div>{{description}}</div>
+{{/if}}
+
 {{outlet}}

@@ -9,7 +9,9 @@ EmberApp.MovieController = Ember.ObjectController.extend
       @set("isEditing", true)
       
     cancel: ->
+      @get("content").rollback()
       @set("isEditing", false)
     
     save: ->
+      @get("content").save()
       @set("isEditing", false)

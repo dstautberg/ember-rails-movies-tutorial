@@ -1,2 +1,7 @@
-<h2>{{name}} ({{year}})</h2>
+{{#if isEditing}} 
+  Name: {{input value=name}}
+  Year: {{input value=year}}
+{{else}}
+  <h2>{{name}} ({{year}})</h2>
+{{/if}}
 <div>{{description}}</div>
