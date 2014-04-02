@@ -2,7 +2,7 @@
   <div class="col-sm-2">
     <h3>Cast</h3>
     {{#each actor in content}}
-      <li>{{actor.name}}</li>
+      <li>{{#link-to "cast.show" actor}}{{actor.name}}{{/link-to}}</li>
       </ul>
     {{/each}}
   </div>
