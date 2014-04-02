@@ -1,5 +1,7 @@
 EmberApp.MovieController = Ember.ObjectController.extend
   isEditing: false
+  saveSucceeded: false
+  saveFailed: false
   
   actions:
     # Note: Only put button actions in "actions" section. Don't put computed
@@ -13,5 +15,14 @@ EmberApp.MovieController = Ember.ObjectController.extend
       @set("isEditing", false)
     
     save: ->
-      @get("content").save()
+      @get("content").save().then @didSave.bind(this), @didNotSave.bind(this)
       @set("isEditing", false)
+
+  didSave: ->
+    @set("saveSucceeded", true)
+    @set("saveFailed", false)
+
+  didNotSave: ->
+    @set("saveSucceeded", false)
+    @set("saveFailed", true)
+  
