@@ -1,5 +1,5 @@
 <ul style="list-style:none;">
   {{#each movie in content}}
-  <li>{{link-to movie.name "movie" movie}}</li>
+  <li>{{#link-to "movie" movie}}{{movie.name}} ({{movie.year}}){{/link-to}}</li>
   {{/each}}
 </ul>
