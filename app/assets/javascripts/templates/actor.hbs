@@ -9,5 +9,12 @@
 <div class="row">
   <div class="col-md-1">Born:</div><div class="col-md-11">{{born}}</div>
 </div>
-<div>Appearances:</div><div></div>
+<div class="row">
+  <div class="col-md-1">Appearances:</div>
+  {{#each movie in appearances}}
+	<div class="col-md-11">
+	  {{#link-to "movie" movie}}{{movie.name}}{{/link-to}}
+	</div>
+  {{/each}}
+</div>
 {{outlet}}
